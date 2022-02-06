@@ -5,9 +5,9 @@ function solveEquation(a, b, c) {
 		if (D==0) {
 		  solution.push(-b/(2*a));
 		} else if (D>0) {
-		  solution.push(Number(((-b+Math.sqrt(D))/(2*a))));
 		  solution.push(Number((-b-Math.sqrt(D))/(2*a)));
-				} 
+		  solution.push(Number(((-b+Math.sqrt(D))/(2*a))));
+		} 
 		return solution;
 	
 }
