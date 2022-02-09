@@ -38,9 +38,8 @@ function worker(...arr) {
 function makeWork(arrOfArr, func) {
 	let max = 80;
 	for (let i = 0; i < arrOfArr.length; i++) {
-		func[i] = worker();
-		if (func[i] > max ) {
-			max = func[i];
+		if (func(worker())[i] > max ) {
+			max = func(worker())[i];
 		} else {
 			max = max;
 		}
