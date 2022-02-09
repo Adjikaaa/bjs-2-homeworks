@@ -24,33 +24,58 @@ function getArrayParams([...arr]) {
         max: max,
         avg: avg
     };
-} 
+}
 
 // Задание 2
-function worker(...arr) {
-  let sum = 0;
-	for (let i = 0; i < arr.length; i++) {
-		sum += arr[i];
-	}
+function worker([...arr]) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
     return sum;
 }
 
 function makeWork(arrOfArr, func) {
-	let max = 80;
-	for (let i = 0; i < arrOfArr.length; i++) {
-		func[i] = worker();
-		if (func[i] > max ) {
-			max = func[i];
-		} else {
-			max = max;
-		}
-	}
-  
-  return max;
+    let max = worker(arrOfArr[0]);
+    for (let i = 0; i < arrOfArr.length; i++) {
+        if (func(arrOfArr[i]) > max) {
+            max = func(arrOfArr[i]);
+        } else {
+            max = max;
+        }
+    }
+    return max;
 }
 
-/*/ Задание 3
-function worker2(arr) {
-  // Ваш код
+// Задание 3
+function worker2([...arr]) {
+    let min = arr[0];
+    let max = arr[0];
+    let delta = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (min < arr[i]) {
+            min = min;
+        } else {
+            min = arr[i]
+        }
+        if (max > arr[i]) {
+            max = max;
+        } else {
+            max = arr[i]
+        }
+    }
+    delta = Math.abs(max - min);
+    return delta;
 }
-*/
+
+function makeWork(arrOfArr, func) {
+    let max = worker2(arrOfArr[0]);
+    for (let i = 0; i < arrOfArr.length; i++) {
+        if (func(arrOfArr[i]) > max) {
+            max = func(arrOfArr[i]);
+        } else {
+            max = max;
+        }
+    }
+    return max;
+}
