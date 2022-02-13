@@ -1,19 +1,23 @@
-function compareArrays([arr1], [arr2]) {
-  let result = true;
-  if (array1.length === array2.length)
-        return array1.every((a, index) => a === array2[index])
-    else
-        return false
+// Задача 1
+function compareArrays([...arr1], [...arr2]) {
+    if (arr1.length != arr2.length) {
+        return false;
+    } else {
+        for (let i = 0; i < arr2.length; i++) {
+            if (String(arr1[i]) === String(arr2[i])) {
+                return true;
+            } else false;
+        }
+    }
 }
 
 
-  return result; // boolean
-}
+// Задача 2
+function advancedFilter([...arr]) {
 
-function advancedFilter(arr) {
-  let resultArr;
-
-  // Ваш код
-
-  return resultArr; // array
-}
+    let isPozitive = (element, index, arr) => element > 0;
+    let isMultipleOfThree = (element, index, arr) => element % 3 == 0;
+    let isMuliplyByTen = (element, index, arr) => element * 10;
+    let resultArr = arr.filter(isPozitive).filter(isMultipleOfThree).map(isMuliplyByTen);
+    return resultArr;
+};
